@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // <![CDATA[
+      var type = 'test' // 'test' or 'live'
+
+      if(type === 'test'){
+        var xhr = new XMLHttpRequest
+        var url = "https://www.myer.com.au/"
+    
+        xhr.open("GET", url, true)
+        xhr.responseType = "document"
+        // xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+        // xhr.setRequestHeader("Origin", "http://Ontik:8000");
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+        xhr.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+        xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, X-Auth-Token, Origin, Authorization");
+        xhr.onload = function(){
+          if(xhr.readyState == 4 && xhr.status == 200){
+            var response = xhr.responseXML
+
+            console.log(response);
+          }
+        }
+
+        xhr.onerror = function(){
+          console.error(xhr.status, xhr.statusText)
+        }
+
+        xhr.send()
+
+
+
+        // var cors_api_host = 'cors-anywhere.herokuapp.com'
+        // var cors_api_url = 'https://' + cors_api_host + '/'
+
+        // async function getPageData(urlProxy){
+        //   const res = await fetch(urlProxy)
+        //   const text = await res.text()
+        //   const doc = new DOMParser().parseFromString(text, "text/xml")
+        //   console.log(doc , typeof(doc))
+        //   // const tags = document .querySelectorAll(".gs_ri")
+        //   // console.log(tags);
+        // }
+        // getPageData(cors_api_url + url)
+
+
+
+        // fetch(cors_api_url+url)
+        //   .then((res) =>
+        //     res.text().then(
+        //       (data) => {
+        //         // console.log(data)
+        //         pageData = data
+        //       }
+        //     )
+        // )
+
+        // console.log(pageData);
+      } else {
+
+      }
+
+    // ]]>
+  </script>
+</body>
+</html>
